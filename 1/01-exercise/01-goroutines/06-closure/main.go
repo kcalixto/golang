@@ -13,10 +13,10 @@ func main() {
 
 	for i := 1; i <= 3; i++ {
 		wg.Add(1)
-		go func() {
+		go func(value int) {
 			defer wg.Done()
-			fmt.Println(i)
-		}()
+			fmt.Println(value)
+		}(i)
 	}
 	wg.Wait()
 }
